@@ -1,6 +1,5 @@
 package com.agile.example;
 
-import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
 
@@ -25,33 +24,36 @@ public class BowlingGame implements Bowling {
 		Integer totalScore = 0;
 		Integer thisScore = 0;
 		Deque<Integer> lastValues = new LinkedList<>();
-		Deque<Integer> nextMultiplier = new LinkedList<>();
+		Integer nextMultiplier = REGULAR;
+		Integer afterNextMultiplier = REGULAR;
 		for (Character character: score.toCharArray()){
 			switch (character){			
 			case 'X':
-				totalScore += 10;
-				nextMultiplier.add(BONUS);
-				nextMultiplier.add(BONUS);
+				totalScore += 10 * nextMultiplier;
+				// update multipliers
+				nextMultiplier = afterNextMultiplier + 1;
+				afterNextMultiplier = BONUS;
 				break;
 			case '-':
 				continue;
 			default:
+				thisScore = Integer.valueOf(character.toString());
+				totalScore += nextMultiplier * thisScore;
+				lastValues.add(thisScore);
 				if (lastValues.size() == FRAME_SIZE){
 					if (lastValues.pop() + lastValues.pop() == TOTAL_PINS){
-						nextMultiplier.add(BONUS);
-					}
-					else{
-						nextMultiplier.add(REGULAR);
+						afterNextMultiplier += 1;
 					}
 				}
-				else{
-					nextMultiplier.add(REGULAR);
-				}
-				thisScore = Integer.valueOf(character.toString());
-				totalScore += nextMultiplier.pop() * thisScore;
-				lastValues.add(thisScore);
+				// update multipliers
+				nextMultiplier = afterNextMultiplier;
+				afterNextMultiplier = REGULAR;
 				break;
 			}
+			System.out.println(totalScore);
+			System.out.println("next" + nextMultiplier);
+			System.out.println("after" + afterNextMultiplier);
+
 		}
 		return totalScore;
 	}

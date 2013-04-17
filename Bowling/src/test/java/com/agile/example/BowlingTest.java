@@ -3,7 +3,6 @@ package com.agile.example;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.fail;
 
 import javax.annotation.Resource;
 
@@ -79,6 +78,54 @@ public class BowlingTest{
 		// given
 		String score = "X-415390107133238009";
 		Integer expectedScore = 74;
+		
+		// when
+		Integer actualScore = bowling.score(score);
+		
+		// then
+		assertThat(actualScore, is(equalTo(expectedScore)));
+	}
+	
+	/**
+	 * Check that using both strikes and spares still works
+	 */
+	@Test
+	public void testStrikeSpareScoreAddition(){
+		// given
+		String score = "X-8291X-40401020X-12";
+		Integer expectedScore = 100;
+		
+		// when
+		Integer actualScore = bowling.score(score);
+		
+		// then
+		assertThat(actualScore, is(equalTo(expectedScore)));
+	}
+	
+	/**
+	 * Another test of merging strikes and spares
+	 */
+	@Test
+	public void testStrikeSpareScoreAddition2(){
+		// given
+		String score = "X-X-X-91X-2842121212";
+		Integer expectedScore = 148;
+		
+		// when
+		Integer actualScore = bowling.score(score);
+		
+		// then
+		assertThat(actualScore, is(equalTo(expectedScore)));
+	}
+	
+	/**
+	 * Maximum score is attainable
+	 */
+	@Test
+	public void testMaximumScore(){
+		// given
+		String score = "X-X-X-X-X-X-X-X-X-XXX";
+		Integer expectedScore = 300;
 		
 		// when
 		Integer actualScore = bowling.score(score);
