@@ -4,9 +4,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.emptyCollectionOf;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.fail;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -82,6 +80,41 @@ public class PrimeNumbersTest{
 		
 		// then
 		assertThat(actualDecomposition, contains(expectedDecomposition.toArray()));		
+	}
+	
+	/**
+	 * Decomposing 4 should return:
+	 * 2, 2
+	 */
+	@Test
+	public void testDecompose4(){
+		// given
+		List<Integer> expectedDecomposition = Arrays.asList(2, 2);
+		Integer input = 4;
+		
+		// when
+		List<Integer> actualDecomposition = calculator.decompose(input);
+		
+		// then
+		assertThat(actualDecomposition, contains(expectedDecomposition.toArray()));
+	}
+	
+	/**
+	 * Final test: decompose a "big" number to check
+	 * 
+	 * 2*2*3*5*7 = 420
+	 */
+	@Test
+	public void testDecompose420(){
+		// given
+		List<Integer> expectedDecomposition = Arrays.asList(2, 2, 3, 5, 7);
+		Integer input = 420;
+		
+		// when
+		List<Integer> actualDecomposition = calculator.decompose(input);
+		
+		// then
+		assertThat(actualDecomposition, contains(expectedDecomposition.toArray()));
 	}
 
 }
