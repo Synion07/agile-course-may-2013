@@ -1,6 +1,11 @@
 package com.agile.example;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.emptyCollectionOf;
+import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
+
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -10,19 +15,36 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 
+/**
+ * Use Spring runner to load objects from context, 
+ * use our custom context configuration to allow annotations.
+ * 
+ * @author Ivan
+ *
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/test-context.xml")
 public class PrimeNumbersTest{
 
-	/*
+	/**
 	 * Use Spring to inject our class here
 	 */
 	@Resource(name = "primeNumberCalculator")
 	private PrimeNumberCalculator calculator;
 	
+	/**
+	 * Decomposing 1 should give an empty list
+	 */
 	@Test
 	public void testDecompose1(){
-		fail("TODO");
+		// given
+		Integer input = 1;
+		
+		// when
+		List<Integer> output = calculator.decompose(input);
+		
+		// then
+		assertThat(output, is(emptyCollectionOf(Integer.class)));
 	}
 
 }

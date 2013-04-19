@@ -1,5 +1,8 @@
 package com.agile.example;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,4 +14,8 @@ import org.springframework.stereotype.Component;
 @Component("primeNumberCalculator")
 public class PrimeNumberCalculatorBasic implements PrimeNumberCalculator {
 
+	@Override
+	public List<Integer> decompose(Integer input) {
+		return new ArrayList<Integer>();
+	}
 }
