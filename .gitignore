@@ -4,3 +4,13 @@
 *.jar
 *.war
 *.ear
+
+# Archivos eclipse
+.project
+.classpath
+.springBeans
+.settings
+
+
+# Target
+target/
