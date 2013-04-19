@@ -51,7 +51,7 @@ public class PrimeNumbersTest{
 	}
 	
 	/**
-	 * Decomposing 2 should give:
+	 * Decomposing 2 should return:
 	 * 2
 	 */
 	@Test
@@ -65,6 +65,23 @@ public class PrimeNumbersTest{
 		
 		// then
 		assertThat(actualDecomposition, contains(expectedDecomposition.toArray()));
+	}
+	
+	/**
+	 * Decomposing 3 should return:
+	 * 3
+	 */
+	@Test
+	public void testDecompose3(){
+		// given
+		List<Integer> expectedDecomposition = Arrays.asList(3);
+		Integer input = 3;
+		
+		// when
+		List<Integer> actualDecomposition = calculator.decompose(input);
+		
+		// then
+		assertThat(actualDecomposition, contains(expectedDecomposition.toArray()));		
 	}
 
 }

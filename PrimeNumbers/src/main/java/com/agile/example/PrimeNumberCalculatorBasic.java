@@ -19,7 +19,7 @@ public class PrimeNumberCalculatorBasic implements PrimeNumberCalculator {
 	public List<Integer> decompose(Integer input) {
 		List<Integer> decomposition = new ArrayList<>();
 		if (input != 1){
-			decomposition = Arrays.asList(2);
+			decomposition = Arrays.asList(input);
 		}
 		return decomposition;
 	}
