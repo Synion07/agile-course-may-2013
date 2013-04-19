@@ -8,6 +8,6 @@ Proyecto Spring vacío, con JUnit, Hamcrest y un context de ejemplo que carga la
 
 ## PrimeNumbers
 
-Proyecto con la solución a la primera kata propuesta (ver issue #2)
+Proyecto con la solución a la primera kata propuesta (ver issue [#2](https://github.com/Synion07/agile-course-may-2013/issues/2))
 
 
