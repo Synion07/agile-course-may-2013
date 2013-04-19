@@ -1,10 +1,13 @@
 package com.agile.example;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.emptyCollectionOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.fail;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -45,6 +48,23 @@ public class PrimeNumbersTest{
 		
 		// then
 		assertThat(output, is(emptyCollectionOf(Integer.class)));
+	}
+	
+	/**
+	 * Decomposing 2 should give:
+	 * 2
+	 */
+	@Test
+	public void testDecompose2(){
+		// given
+		List<Integer> expectedDecomposition = Arrays.asList(2);
+		Integer input = 2;
+		
+		// when
+		List<Integer> actualDecomposition = calculator.decompose(input);
+		
+		// then
+		assertThat(actualDecomposition, contains(expectedDecomposition.toArray()));
 	}
 
 }
