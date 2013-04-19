@@ -23,7 +23,6 @@ public class PrimeNumberCalculatorBasic implements PrimeNumberCalculator {
 			if (currentNum % divider == 0){
 				decomposition.add(divider);
 				currentNum /= divider;
-				divider = 2;
 			}
 			else{
 				divider++;
