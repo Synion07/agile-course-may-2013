@@ -13,7 +13,11 @@ public class BowlingGame implements Bowling {
 	
 	@Override
 	public Integer score(String score) {
-		return 63;
+		Integer totalScore = 0;
+		for (Character character: score.toCharArray()){
+			totalScore += Integer.valueOf(character.toString());
+		}
+		return totalScore;
 	}
 
 }

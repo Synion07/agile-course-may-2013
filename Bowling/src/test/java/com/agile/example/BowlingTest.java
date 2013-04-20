@@ -35,5 +35,18 @@ public class BowlingTest{
 		// then
 		assertThat(actualScore, is(equalTo(expectedScore)));
 	}
+	
+	@Test
+	public void testNormalScoreAdditionWithOtherScore(){
+		// given
+		String score = "31415390127133238009";
+		Integer expectedScore = 65;
+		
+		// when
+		Integer actualScore = bowling.score(score);
+		
+		// then
+		assertThat(actualScore, is(equalTo(expectedScore)));
+	}
 
 }
