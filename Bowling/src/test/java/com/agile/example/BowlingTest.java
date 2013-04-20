@@ -23,6 +23,9 @@ public class BowlingTest{
 	@Resource(name = "bowling")
 	private Bowling bowling;
 	
+	/**
+	 * Test a normal score addition
+	 */
 	@Test
 	public void testNormalScoreAddition(){
 		// given
@@ -36,11 +39,30 @@ public class BowlingTest{
 		assertThat(actualScore, is(equalTo(expectedScore)));
 	}
 	
+	/**
+	 * Test another score addition, to triangulate
+	 */
 	@Test
 	public void testNormalScoreAdditionWithOtherScore(){
 		// given
 		String score = "31415390127133238009";
 		Integer expectedScore = 65;
+		
+		// when
+		Integer actualScore = bowling.score(score);
+		
+		// then
+		assertThat(actualScore, is(equalTo(expectedScore)));
+	}
+	
+	/**
+	 * Test that spares are counted correctly (double next throw)
+	 */
+	@Test
+	public void testSpareScoreAddition(){
+		// given
+		String score = "91415390107133238009";
+		Integer expectedScore = 73;
 		
 		// when
 		Integer actualScore = bowling.score(score);
