@@ -70,5 +70,21 @@ public class BowlingTest{
 		// then
 		assertThat(actualScore, is(equalTo(expectedScore)));
 	}
+	
+	/**
+	 * Test that strikes are counted correctly (double next two throws)
+	 */
+	@Test
+	public void testStrikeScoreAddition(){
+		// given
+		String score = "X-415390107133238009";
+		Integer expectedScore = 74;
+		
+		// when
+		Integer actualScore = bowling.score(score);
+		
+		// then
+		assertThat(actualScore, is(equalTo(expectedScore)));
+	}
 
 }
