@@ -134,4 +134,19 @@ public class BowlingTest{
 		assertThat(actualScore, is(equalTo(expectedScore)));
 	}
 
+	/**
+	 * Test that the last spare special case works correctly
+	 */
+	@Test
+	public void testLastSpare(){
+		// given
+		String score = "X-X-X-X-X-X-X-X-X-91X";
+		Integer expectedScore = 279;
+		
+		// when
+		Integer actualScore = bowling.score(score);
+		
+		// then
+		assertThat(actualScore, is(equalTo(expectedScore)));
+	}
 }
