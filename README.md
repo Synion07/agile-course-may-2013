@@ -15,4 +15,4 @@ Proyecto con la solución a la primera kata propuesta (ver issue [#2](https://gi
 Proyecto con la solución a la segunda kata propuesta (ver issue [#3](https://github.com/Synion07/agile-course-may-2013/issues/3))
 
 
-
+Test devel branch from Eclipse
